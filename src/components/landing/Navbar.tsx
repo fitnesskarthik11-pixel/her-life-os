@@ -16,9 +16,12 @@ const Navbar = () => {
           <span className="font-display text-xl font-bold">HerSphere 30</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#modules" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Modules</a>
-          <a href="#pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
+        <div className="hidden md:flex items-center gap-6">
+          <a href="/#modules" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Modules</a>
+          <a href="/#pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
+          <Link to="/marketing-home" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Why HerSphere</Link>
+          <Link to="/press-kit" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Press</Link>
+          <a href="/#contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Contact</a>
           <Link to="/dashboard">
             <Button className="rounded-full bg-gradient-hero text-primary-foreground hover:opacity-90 shadow-glow px-6">
               Dashboard
@@ -33,8 +36,11 @@ const Navbar = () => {
 
       {open && (
         <div className="md:hidden bg-glass border-t border-border/50 p-4 space-y-3">
-          <a href="#modules" className="block text-sm font-medium py-2" onClick={() => setOpen(false)}>Modules</a>
-          <a href="#pricing" className="block text-sm font-medium py-2" onClick={() => setOpen(false)}>Pricing</a>
+          <a href="/#modules" className="block text-sm font-medium py-2" onClick={() => setOpen(false)}>Modules</a>
+          <a href="/#pricing" className="block text-sm font-medium py-2" onClick={() => setOpen(false)}>Pricing</a>
+          <Link to="/marketing-home" className="block text-sm font-medium py-2" onClick={() => setOpen(false)}>Why HerSphere</Link>
+          <Link to="/press-kit" className="block text-sm font-medium py-2" onClick={() => setOpen(false)}>Press</Link>
+          <a href="/#contact" className="block text-sm font-medium py-2" onClick={() => setOpen(false)}>Contact</a>
           <Link to="/dashboard" onClick={() => setOpen(false)}>
             <Button className="w-full rounded-full bg-gradient-hero text-primary-foreground">Dashboard</Button>
           </Link>
