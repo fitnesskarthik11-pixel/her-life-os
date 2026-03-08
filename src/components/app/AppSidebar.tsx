@@ -63,7 +63,7 @@ export function AppSidebar() {
         </SidebarGroup>
 
         <PermissionGate requiredRole="admin">
-          <SidebarGroup defaultOpen>
+          <SidebarGroup>
             <SidebarGroupLabel>Admin</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
