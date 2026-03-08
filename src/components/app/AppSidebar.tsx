@@ -44,7 +44,7 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarContent>
-        <SidebarGroup defaultOpen>
+        <SidebarGroup>
           <SidebarGroupLabel>CRM</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
