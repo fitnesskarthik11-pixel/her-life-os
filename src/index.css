@@ -74,6 +74,70 @@
     --sidebar-border: 30 20% 90%;
     --sidebar-ring: 340 65% 47%;
   }
+
+  .dark {
+    --background: 340 15% 8%;
+    --foreground: 30 20% 92%;
+
+    --card: 340 12% 11%;
+    --card-foreground: 30 20% 92%;
+
+    --popover: 340 12% 11%;
+    --popover-foreground: 30 20% 92%;
+
+    --primary: 340 65% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 340 20% 18%;
+    --secondary-foreground: 30 20% 85%;
+
+    --muted: 340 12% 16%;
+    --muted-foreground: 340 10% 55%;
+
+    --accent: 340 25% 20%;
+    --accent-foreground: 340 50% 80%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 340 12% 18%;
+    --input: 340 12% 20%;
+    --ring: 340 65% 55%;
+
+    --rose: 340 65% 55%;
+    --rose-light: 340 30% 20%;
+    --rose-dark: 340 65% 70%;
+    --warm: 25 70% 55%;
+    --warm-light: 25 30% 18%;
+    --gold: 38 80% 50%;
+    --gold-light: 38 30% 18%;
+    --sage: 160 30% 45%;
+    --sage-light: 160 20% 18%;
+    --lavender: 270 40% 60%;
+    --lavender-light: 270 20% 20%;
+    --peach: 15 70% 55%;
+    --peach-light: 15 25% 18%;
+    --sky: 200 55% 50%;
+    --sky-light: 200 25% 18%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(340 65% 55%), hsl(25 70% 55%), hsl(38 80% 50%));
+    --gradient-warm: linear-gradient(135deg, hsl(340 20% 14%), hsl(25 20% 14%));
+    --gradient-card: linear-gradient(145deg, hsl(340 12% 12%), hsl(340 15% 10%));
+    --gradient-glass: linear-gradient(135deg, rgba(30,20,25,0.9), rgba(30,20,25,0.6));
+
+    --shadow-soft: 0 4px 24px -4px hsl(340 30% 10% / 0.3);
+    --shadow-glow: 0 8px 40px -8px hsl(340 65% 55% / 0.3);
+    --shadow-card: 0 2px 16px -2px hsl(340 30% 10% / 0.2);
+
+    --sidebar-background: 340 12% 10%;
+    --sidebar-foreground: 30 20% 90%;
+    --sidebar-primary: 340 65% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 340 20% 18%;
+    --sidebar-accent-foreground: 340 50% 80%;
+    --sidebar-border: 340 12% 18%;
+    --sidebar-ring: 340 65% 55%;
+  }
 }
 
 @layer base {
