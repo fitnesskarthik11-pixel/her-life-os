@@ -99,10 +99,10 @@ export default function Companies() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Company</TableHead>
+                   <TableHead>Company</TableHead>
+                  <TableHead>Domain</TableHead>
                   <TableHead>Industry</TableHead>
                   <TableHead>Size</TableHead>
-                  <TableHead>Location</TableHead>
                   <TableHead className="w-12"></TableHead>
                 </TableRow>
               </TableHeader>
