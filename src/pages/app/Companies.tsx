@@ -37,7 +37,7 @@ export default function Companies() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["companies"] });
       setDialogOpen(false);
-      setForm({ name: "", domain: "", industry: "", size: "", city: "", country: "" });
+      setForm({ name: "", domain: "", industry: "", size: "" });
       toast({ title: "Company created" });
     },
     onError: (e: any) => toast({ title: "Error", description: e.message, variant: "destructive" }),
