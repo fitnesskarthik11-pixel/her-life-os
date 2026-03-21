@@ -75,11 +75,7 @@ export default function Companies() {
                 <div className="space-y-2"><Label>Domain</Label><Input placeholder="example.com" value={form.domain} onChange={e => setForm({ ...form, domain: e.target.value })} /></div>
                 <div className="space-y-2"><Label>Industry</Label><Input value={form.industry} onChange={e => setForm({ ...form, industry: e.target.value })} /></div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2"><Label>Size</Label><Input placeholder="e.g. 50-100" value={form.size} onChange={e => setForm({ ...form, size: e.target.value })} /></div>
-                <div className="space-y-2"><Label>City</Label><Input value={form.city} onChange={e => setForm({ ...form, city: e.target.value })} /></div>
-              </div>
-              <div className="space-y-2"><Label>Country</Label><Input value={form.country} onChange={e => setForm({ ...form, country: e.target.value })} /></div>
+              <div className="space-y-2"><Label>Size</Label><Input placeholder="e.g. 50-100" value={form.size} onChange={e => setForm({ ...form, size: e.target.value })} /></div>
               <Button type="submit" className="w-full" disabled={createMutation.isPending}>{createMutation.isPending ? "Creating..." : "Create Company"}</Button>
             </form>
           </DialogContent>
