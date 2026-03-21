@@ -18,7 +18,7 @@ export default function Companies() {
   const queryClient = useQueryClient();
   const [search, setSearch] = useState("");
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [form, setForm] = useState({ name: "", domain: "", industry: "", size: "", city: "", country: "" });
+  const [form, setForm] = useState({ name: "", domain: "", industry: "", size: "" });
 
   const { data: companies, isLoading, error } = useQuery({
     queryKey: ["companies"],
@@ -37,7 +37,7 @@ export default function Companies() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["companies"] });
       setDialogOpen(false);
-      setForm({ name: "", domain: "", industry: "", size: "", city: "", country: "" });
+      setForm({ name: "", domain: "", industry: "", size: "" });
       toast({ title: "Company created" });
     },
     onError: (e: any) => toast({ title: "Error", description: e.message, variant: "destructive" }),
@@ -75,11 +75,7 @@ export default function Companies() {
                 <div className="space-y-2"><Label>Domain</Label><Input placeholder="example.com" value={form.domain} onChange={e => setForm({ ...form, domain: e.target.value })} /></div>
                 <div className="space-y-2"><Label>Industry</Label><Input value={form.industry} onChange={e => setForm({ ...form, industry: e.target.value })} /></div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2"><Label>Size</Label><Input placeholder="e.g. 50-100" value={form.size} onChange={e => setForm({ ...form, size: e.target.value })} /></div>
-                <div className="space-y-2"><Label>City</Label><Input value={form.city} onChange={e => setForm({ ...form, city: e.target.value })} /></div>
-              </div>
-              <div className="space-y-2"><Label>Country</Label><Input value={form.country} onChange={e => setForm({ ...form, country: e.target.value })} /></div>
+              <div className="space-y-2"><Label>Size</Label><Input placeholder="e.g. 50-100" value={form.size} onChange={e => setForm({ ...form, size: e.target.value })} /></div>
               <Button type="submit" className="w-full" disabled={createMutation.isPending}>{createMutation.isPending ? "Creating..." : "Create Company"}</Button>
             </form>
           </DialogContent>
@@ -103,10 +99,10 @@ export default function Companies() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Company</TableHead>
+                   <TableHead>Company</TableHead>
+                  <TableHead>Domain</TableHead>
                   <TableHead>Industry</TableHead>
                   <TableHead>Size</TableHead>
-                  <TableHead>Location</TableHead>
                   <TableHead className="w-12"></TableHead>
                 </TableRow>
               </TableHeader>
@@ -124,9 +120,9 @@ export default function Companies() {
                         </div>
                       </div>
                     </TableCell>
+                    <TableCell className="text-muted-foreground">{company.domain || "—"}</TableCell>
                     <TableCell className="text-muted-foreground">{company.industry || "—"}</TableCell>
                     <TableCell className="text-muted-foreground">{company.size || "—"}</TableCell>
-                    <TableCell className="text-muted-foreground">{[company.city, company.country].filter(Boolean).join(", ") || "—"}</TableCell>
                     <TableCell>
                       <Button variant="ghost" size="icon" onClick={() => deleteMutation.mutate(company.id)} className="text-muted-foreground hover:text-destructive">
                         <Trash2 className="h-4 w-4" />
