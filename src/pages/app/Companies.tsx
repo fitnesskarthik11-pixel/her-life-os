@@ -18,7 +18,7 @@ export default function Companies() {
   const queryClient = useQueryClient();
   const [search, setSearch] = useState("");
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [form, setForm] = useState({ name: "", domain: "", industry: "", size: "", city: "", country: "" });
+  const [form, setForm] = useState({ name: "", domain: "", industry: "", size: "" });
 
   const { data: companies, isLoading, error } = useQuery({
     queryKey: ["companies"],
