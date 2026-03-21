@@ -26,7 +26,7 @@ export default function ProfileSettings() {
   const handleSave = async () => {
     if (!user) return;
     setSaving(true);
-    const { error } = await supabase.from("profiles").update({ full_name: fullName, phone, job_title: jobTitle }).eq("id", user.id);
+    const { error } = await supabase.from("profiles").update({ full_name: fullName }).eq("id", user.id);
     setSaving(false);
     if (error) toast({ title: "Error", description: error.message, variant: "destructive" });
     else toast({ title: "Profile updated" });
