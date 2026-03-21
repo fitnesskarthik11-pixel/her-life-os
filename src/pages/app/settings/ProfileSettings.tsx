@@ -13,8 +13,6 @@ export default function ProfileSettings() {
   const { user, profile } = useAuth();
   const { toast } = useToast();
   const [fullName, setFullName] = useState(profile?.full_name || "");
-  const [phone, setPhone] = useState("");
-  const [jobTitle, setJobTitle] = useState("");
   const [saving, setSaving] = useState(false);
   const [changingPw, setChangingPw] = useState(false);
   const [newPw, setNewPw] = useState("");
