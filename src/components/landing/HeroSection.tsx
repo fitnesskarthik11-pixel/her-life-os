@@ -1,15 +1,17 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image with overlay */}
+      {/* Gradient background instead of missing image */}
+      <div className="absolute inset-0 bg-gradient-to-br from-rose-light via-background to-warm-light" />
       <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
+        <div className="absolute top-20 right-20 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-warm/10 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold/5 blur-3xl" />
       </div>
 
       <div className="container relative z-10 py-24 lg:py-32">
@@ -52,13 +54,17 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Button size="lg" className="bg-gradient-hero text-primary-foreground shadow-glow hover:opacity-90 text-base px-8 h-13 rounded-full">
-              Get Started Now
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="text-base px-8 h-13 rounded-full border-2">
-              Explore All 30 Modules
-            </Button>
+            <Link to="/signup">
+              <Button size="lg" className="bg-gradient-hero text-primary-foreground shadow-glow hover:opacity-90 text-base px-8 h-13 rounded-full">
+                Get Started Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <a href="/#modules">
+              <Button size="lg" variant="outline" className="text-base px-8 h-13 rounded-full border-2">
+                Explore All 30 Modules
+              </Button>
+            </a>
           </motion.div>
 
           <motion.div

@@ -7,7 +7,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-glass border-b border-border/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-full bg-gradient-hero flex items-center justify-center">
@@ -22,27 +22,33 @@ const Navbar = () => {
           <Link to="/marketing-home" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Why HerSphere</Link>
           <Link to="/press-kit" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Press</Link>
           <a href="/#contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Contact</a>
-          <Link to="/dashboard">
+          <Link to="/login">
+            <Button variant="ghost" className="text-sm">Sign In</Button>
+          </Link>
+          <Link to="/signup">
             <Button className="rounded-full bg-gradient-hero text-primary-foreground hover:opacity-90 shadow-glow px-6">
-              Dashboard
+              Get Started
             </Button>
           </Link>
         </div>
 
-        <button className="md:hidden" onClick={() => setOpen(!open)}>
+        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden bg-glass border-t border-border/50 p-4 space-y-3">
+        <div className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border/50 p-4 space-y-3">
           <a href="/#modules" className="block text-sm font-medium py-2" onClick={() => setOpen(false)}>Modules</a>
           <a href="/#pricing" className="block text-sm font-medium py-2" onClick={() => setOpen(false)}>Pricing</a>
           <Link to="/marketing-home" className="block text-sm font-medium py-2" onClick={() => setOpen(false)}>Why HerSphere</Link>
           <Link to="/press-kit" className="block text-sm font-medium py-2" onClick={() => setOpen(false)}>Press</Link>
           <a href="/#contact" className="block text-sm font-medium py-2" onClick={() => setOpen(false)}>Contact</a>
-          <Link to="/dashboard" onClick={() => setOpen(false)}>
-            <Button className="w-full rounded-full bg-gradient-hero text-primary-foreground">Dashboard</Button>
+          <Link to="/login" onClick={() => setOpen(false)}>
+            <Button variant="outline" className="w-full mb-2">Sign In</Button>
+          </Link>
+          <Link to="/signup" onClick={() => setOpen(false)}>
+            <Button className="w-full rounded-full bg-gradient-hero text-primary-foreground">Get Started</Button>
           </Link>
         </div>
       )}
