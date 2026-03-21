@@ -120,9 +120,9 @@ export default function Companies() {
                         </div>
                       </div>
                     </TableCell>
+                    <TableCell className="text-muted-foreground">{company.domain || "—"}</TableCell>
                     <TableCell className="text-muted-foreground">{company.industry || "—"}</TableCell>
                     <TableCell className="text-muted-foreground">{company.size || "—"}</TableCell>
-                    <TableCell className="text-muted-foreground">{[company.city, company.country].filter(Boolean).join(", ") || "—"}</TableCell>
                     <TableCell>
                       <Button variant="ghost" size="icon" onClick={() => deleteMutation.mutate(company.id)} className="text-muted-foreground hover:text-destructive">
                         <Trash2 className="h-4 w-4" />

@@ -65,10 +65,6 @@ export default function ProfileSettings() {
           </div>
           <div className="space-y-2"><Label>Full Name</Label><Input value={fullName} onChange={e => setFullName(e.target.value)} /></div>
           <div className="space-y-2"><Label>Email</Label><Input value={user?.email || ""} disabled className="opacity-60" /></div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-2"><Label>Phone</Label><Input value={phone} onChange={e => setPhone(e.target.value)} /></div>
-            <div className="space-y-2"><Label>Job Title</Label><Input value={jobTitle} onChange={e => setJobTitle(e.target.value)} /></div>
-          </div>
           <Button onClick={handleSave} disabled={saving}>{saving ? <Loader2 className="h-4 w-4 animate-spin" /> : "Save Changes"}</Button>
         </CardContent>
       </Card>
