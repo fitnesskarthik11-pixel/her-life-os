@@ -132,6 +132,263 @@ export type Database = {
           },
         ]
       }
+      blogs: {
+        Row: {
+          author_id: string
+          content: string | null
+          cover_image_url: string | null
+          created_at: string
+          excerpt: string | null
+          id: string
+          organization_id: string
+          published_at: string | null
+          share_url: string | null
+          slug: string
+          status: Database["public"]["Enums"]["content_status"] | null
+          tags: string[] | null
+          title: string
+          updated_at: string
+          views_count: number | null
+        }
+        Insert: {
+          author_id: string
+          content?: string | null
+          cover_image_url?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          organization_id: string
+          published_at?: string | null
+          share_url?: string | null
+          slug: string
+          status?: Database["public"]["Enums"]["content_status"] | null
+          tags?: string[] | null
+          title: string
+          updated_at?: string
+          views_count?: number | null
+        }
+        Update: {
+          author_id?: string
+          content?: string | null
+          cover_image_url?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          organization_id?: string
+          published_at?: string | null
+          share_url?: string | null
+          slug?: string
+          status?: Database["public"]["Enums"]["content_status"] | null
+          tags?: string[] | null
+          title?: string
+          updated_at?: string
+          views_count?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blogs_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      bookings: {
+        Row: {
+          assigned_to: string | null
+          contact_id: string | null
+          created_at: string
+          created_by: string | null
+          description: string | null
+          end_time: string
+          id: string
+          location: string | null
+          meeting_url: string | null
+          notes: string | null
+          organization_id: string
+          reminder_sent: boolean | null
+          start_time: string
+          status: Database["public"]["Enums"]["booking_status"] | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          assigned_to?: string | null
+          contact_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          end_time: string
+          id?: string
+          location?: string | null
+          meeting_url?: string | null
+          notes?: string | null
+          organization_id: string
+          reminder_sent?: boolean | null
+          start_time: string
+          status?: Database["public"]["Enums"]["booking_status"] | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          assigned_to?: string | null
+          contact_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          end_time?: string
+          id?: string
+          location?: string | null
+          meeting_url?: string | null
+          notes?: string | null
+          organization_id?: string
+          reminder_sent?: boolean | null
+          start_time?: string
+          status?: Database["public"]["Enums"]["booking_status"] | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bookings_contact_id_fkey"
+            columns: ["contact_id"]
+            isOneToOne: false
+            referencedRelation: "contacts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "bookings_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      chat_messages: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          role: string
+          session_id: string
+          tokens_used: number | null
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          role: string
+          session_id: string
+          tokens_used?: number | null
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          role?: string
+          session_id?: string
+          tokens_used?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "chat_messages_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "chat_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      chat_sessions: {
+        Row: {
+          chatbot_id: string
+          created_at: string
+          id: string
+          metadata: Json | null
+          title: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          chatbot_id: string
+          created_at?: string
+          id?: string
+          metadata?: Json | null
+          title?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          chatbot_id?: string
+          created_at?: string
+          id?: string
+          metadata?: Json | null
+          title?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "chat_sessions_chatbot_id_fkey"
+            columns: ["chatbot_id"]
+            isOneToOne: false
+            referencedRelation: "chatbots"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      chatbots: {
+        Row: {
+          config: Json | null
+          created_at: string
+          created_by: string | null
+          description: string | null
+          id: string
+          is_active: boolean | null
+          model: string | null
+          name: string
+          organization_id: string
+          system_prompt: string | null
+          updated_at: string
+        }
+        Insert: {
+          config?: Json | null
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          model?: string | null
+          name: string
+          organization_id: string
+          system_prompt?: string | null
+          updated_at?: string
+        }
+        Update: {
+          config?: Json | null
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          model?: string | null
+          name?: string
+          organization_id?: string
+          system_prompt?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "chatbots_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       companies: {
         Row: {
           address: string | null
@@ -363,6 +620,138 @@ export type Database = {
           },
         ]
       }
+      group_members: {
+        Row: {
+          group_id: string
+          id: string
+          joined_at: string
+          role: Database["public"]["Enums"]["group_member_role"] | null
+          user_id: string
+        }
+        Insert: {
+          group_id: string
+          id?: string
+          joined_at?: string
+          role?: Database["public"]["Enums"]["group_member_role"] | null
+          user_id: string
+        }
+        Update: {
+          group_id?: string
+          id?: string
+          joined_at?: string
+          role?: Database["public"]["Enums"]["group_member_role"] | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "group_members_group_id_fkey"
+            columns: ["group_id"]
+            isOneToOne: false
+            referencedRelation: "groups"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      groups: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          created_by: string
+          description: string | null
+          id: string
+          is_public: boolean | null
+          max_members: number | null
+          name: string
+          organization_id: string
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          created_by: string
+          description?: string | null
+          id?: string
+          is_public?: boolean | null
+          max_members?: number | null
+          name: string
+          organization_id: string
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          created_by?: string
+          description?: string | null
+          id?: string
+          is_public?: boolean | null
+          max_members?: number | null
+          name?: string
+          organization_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "groups_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      integrations: {
+        Row: {
+          config: Json | null
+          created_at: string
+          created_by: string | null
+          id: string
+          last_synced_at: string | null
+          name: string
+          organization_id: string
+          status: Database["public"]["Enums"]["integration_status"] | null
+          type: Database["public"]["Enums"]["integration_type"]
+          updated_at: string
+          webhook_secret: string | null
+          webhook_url: string | null
+        }
+        Insert: {
+          config?: Json | null
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          last_synced_at?: string | null
+          name: string
+          organization_id: string
+          status?: Database["public"]["Enums"]["integration_status"] | null
+          type: Database["public"]["Enums"]["integration_type"]
+          updated_at?: string
+          webhook_secret?: string | null
+          webhook_url?: string | null
+        }
+        Update: {
+          config?: Json | null
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          last_synced_at?: string | null
+          name?: string
+          organization_id?: string
+          status?: Database["public"]["Enums"]["integration_status"] | null
+          type?: Database["public"]["Enums"]["integration_type"]
+          updated_at?: string
+          webhook_secret?: string | null
+          webhook_url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "integrations_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       newsletter_subscribers: {
         Row: {
           created_at: string | null
@@ -441,6 +830,124 @@ export type Database = {
         }
         Relationships: []
       }
+      payments: {
+        Row: {
+          amount: number
+          created_at: string
+          currency: string | null
+          description: string | null
+          id: string
+          metadata: Json | null
+          order_id: string
+          organization_id: string
+          paid_at: string | null
+          payment_method: string | null
+          provider: Database["public"]["Enums"]["payment_provider"]
+          provider_order_id: string | null
+          provider_payment_id: string | null
+          status: Database["public"]["Enums"]["payment_status"] | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          currency?: string | null
+          description?: string | null
+          id?: string
+          metadata?: Json | null
+          order_id: string
+          organization_id: string
+          paid_at?: string | null
+          payment_method?: string | null
+          provider: Database["public"]["Enums"]["payment_provider"]
+          provider_order_id?: string | null
+          provider_payment_id?: string | null
+          status?: Database["public"]["Enums"]["payment_status"] | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          currency?: string | null
+          description?: string | null
+          id?: string
+          metadata?: Json | null
+          order_id?: string
+          organization_id?: string
+          paid_at?: string | null
+          payment_method?: string | null
+          provider?: Database["public"]["Enums"]["payment_provider"]
+          provider_order_id?: string | null
+          provider_payment_id?: string | null
+          status?: Database["public"]["Enums"]["payment_status"] | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payments_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      posters: {
+        Row: {
+          created_at: string
+          created_by: string
+          description: string | null
+          id: string
+          image_url: string
+          organization_id: string
+          share_url: string | null
+          status: Database["public"]["Enums"]["content_status"] | null
+          template_data: Json | null
+          title: string
+          updated_at: string
+          views_count: number | null
+        }
+        Insert: {
+          created_at?: string
+          created_by: string
+          description?: string | null
+          id?: string
+          image_url: string
+          organization_id: string
+          share_url?: string | null
+          status?: Database["public"]["Enums"]["content_status"] | null
+          template_data?: Json | null
+          title: string
+          updated_at?: string
+          views_count?: number | null
+        }
+        Update: {
+          created_at?: string
+          created_by?: string
+          description?: string | null
+          id?: string
+          image_url?: string
+          organization_id?: string
+          share_url?: string | null
+          status?: Database["public"]["Enums"]["content_status"] | null
+          template_data?: Json | null
+          title?: string
+          updated_at?: string
+          views_count?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "posters_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -491,6 +998,36 @@ export type Database = {
           },
         ]
       }
+      share_tracking: {
+        Row: {
+          created_at: string
+          entity_id: string
+          entity_type: string
+          id: string
+          ip_address: string | null
+          platform: string
+          shared_by: string | null
+        }
+        Insert: {
+          created_at?: string
+          entity_id: string
+          entity_type: string
+          id?: string
+          ip_address?: string | null
+          platform: string
+          shared_by?: string | null
+        }
+        Update: {
+          created_at?: string
+          entity_id?: string
+          entity_type?: string
+          id?: string
+          ip_address?: string | null
+          platform?: string
+          shared_by?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
@@ -537,6 +1074,13 @@ export type Database = {
     }
     Enums: {
       app_role: "super_admin" | "admin" | "manager" | "user" | "viewer"
+      booking_status:
+        | "pending"
+        | "confirmed"
+        | "cancelled"
+        | "completed"
+        | "no_show"
+      content_status: "draft" | "published" | "archived"
       deal_stage:
         | "lead"
         | "qualified"
@@ -544,6 +1088,25 @@ export type Database = {
         | "negotiation"
         | "closed_won"
         | "closed_lost"
+      group_member_role: "owner" | "admin" | "moderator" | "member"
+      integration_status: "active" | "inactive" | "error" | "pending"
+      integration_type:
+        | "whatsapp"
+        | "telegram"
+        | "slack"
+        | "gmail"
+        | "zapier"
+        | "hubspot"
+        | "custom_webhook"
+      payment_provider: "cashfree" | "gpay" | "upi" | "stripe" | "manual"
+      payment_status:
+        | "created"
+        | "pending"
+        | "authorized"
+        | "captured"
+        | "failed"
+        | "refunded"
+        | "cancelled"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -672,6 +1235,14 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["super_admin", "admin", "manager", "user", "viewer"],
+      booking_status: [
+        "pending",
+        "confirmed",
+        "cancelled",
+        "completed",
+        "no_show",
+      ],
+      content_status: ["draft", "published", "archived"],
       deal_stage: [
         "lead",
         "qualified",
@@ -679,6 +1250,27 @@ export const Constants = {
         "negotiation",
         "closed_won",
         "closed_lost",
+      ],
+      group_member_role: ["owner", "admin", "moderator", "member"],
+      integration_status: ["active", "inactive", "error", "pending"],
+      integration_type: [
+        "whatsapp",
+        "telegram",
+        "slack",
+        "gmail",
+        "zapier",
+        "hubspot",
+        "custom_webhook",
+      ],
+      payment_provider: ["cashfree", "gpay", "upi", "stripe", "manual"],
+      payment_status: [
+        "created",
+        "pending",
+        "authorized",
+        "captured",
+        "failed",
+        "refunded",
+        "cancelled",
       ],
     },
   },
