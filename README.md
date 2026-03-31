@@ -1,73 +1,79 @@
-# Welcome to your Lovable project
+# GS Started — All-in-One Business Platform
 
-## Project info
+> Chatbot • Social Integrations • Booking • Groups • WhatsApp & Telegram • Payments • Content & Sharing
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Tech Stack
 
-## How can I edit this code?
+- **Frontend**: React 18 + Vite + TypeScript + Tailwind CSS + shadcn/ui
+- **Backend**: Lovable Cloud (Supabase) — PostgreSQL, Auth, Edge Functions, RLS
+- **AI**: Lovable AI Gateway (Gemini, GPT)
+- **Payments**: Cashfree + GPay UPI (INR)
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- 🔐 Full authentication (email/password, Google OAuth, password reset)
+- 👥 RBAC with 5 roles (super_admin, admin, manager, user, viewer)
+- 💬 AI Chatbot with configurable system prompts
+- 📱 WhatsApp & Telegram webhook integrations
+- 📅 Booking / appointment management
+- 👥 Groups & communities
+- 💳 Payment processing (Cashfree, GPay UPI)
+- 📝 Blog & poster content management with public sharing
+- 📊 CRM: Contacts, Companies, Deals pipeline, Reports
+- 🔍 Audit logging & activity tracking
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Database Tables
 
-Changes made via Lovable will be committed automatically to this repo.
+| Table | Purpose |
+|-------|---------|
+| profiles | User profiles linked to auth |
+| user_roles | RBAC role assignments |
+| organizations | Multi-tenant orgs |
+| contacts | CRM contacts |
+| companies | CRM companies |
+| deals | Sales pipeline |
+| activities | Activity feed |
+| audit_logs | Security audit trail |
+| notifications | User notifications |
+| chatbots | Chatbot configurations |
+| chat_sessions | Chat conversation sessions |
+| chat_messages | Individual chat messages |
+| integrations | WhatsApp/Telegram/Slack configs |
+| bookings | Appointments & scheduling |
+| groups | Community groups |
+| group_members | Group membership |
+| payments | Payment orders & status |
+| blogs | Blog content management |
+| posters | Visual content management |
+| share_tracking | Social share analytics |
+| contact_submissions | Public contact form |
+| newsletter_subscribers | Newsletter signups |
 
-**Use your preferred IDE**
+## Edge Functions
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+| Function | Purpose |
+|----------|---------|
+| `health-check` | Service health & version |
+| `chat` | AI chatbot with streaming |
+| `payment-webhook` | Cashfree/GPay payment callbacks |
+| `messaging-webhook` | WhatsApp & Telegram incoming |
+| `bookings-api` | CRUD for appointments |
+| `content-api` | Blog & poster management |
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Setup
 
-Follow these steps:
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Start dev server: `npm run dev`
+4. Edge functions deploy automatically via Lovable Cloud
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Environment Variables
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Managed automatically by Lovable Cloud:
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_PUBLISHABLE_KEY`
+- `VITE_SUPABASE_PROJECT_ID`
 
-# Step 3: Install the necessary dependencies.
-npm i
+## License
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Proprietary — GS Started © 2026
